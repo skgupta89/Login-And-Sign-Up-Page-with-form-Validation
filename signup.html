@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Document</title>
+</head>
+<style>
+    .remark {
+        color: red;
+        font-size: 15px;
+    }
+    .container{
+        text-align: center;
+        background-color: cornflowerblue;
+        margin-top: 25px;
+        height: 620px;
+        width: 550px;
+    }
+    .col{
+        margin-top: 30px;
+        font-size:15px;
+        font-weight: bolder;
+    }
+    .col input:hover{
+        background-color:khaki;
+    }
+    button{
+        margin-left: 50px;
+    }
+    span{
+        margin-top: 5px;
+        
+    }
+    h6{
+        font-weight: bolder;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        background-color: blanchedalmond;
+        border-radius: 20px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-4 col-md-4 col">
+                <h6>Fill Signup Form</h6>
+                
+                <label>Enter Your Name</label> <br>
+                <input type="text" id="name"><br>
+                <span id="Aname" class="remark"></span><br>
+
+                <label>Enter Your Email</label> <br>
+                <input type="email" id="email"> <br>
+                <span id="Aemail" class="remark"></span> <br>
+
+                <label>Enter Mobile Number</label><br>
+                <input type="number" id="mobile"> <br>
+                <span id="number" class="remark"></span><br>
+
+                <label>Enter User ID</label><br>
+                <input type="text" id="id"><br>
+                <span id="uid" class="remark"></span><br>
+
+                <label>Enter Password</label><br>
+                <input type="text" id="password"><br>
+                <span id="Apassword" class="remark"></span><br>
+
+                <label>Confrim Password</label><br>
+                <input type="text" id="cpassword"><br>
+                <span id="Acpassword" class="remark"></span><br>
+                
+                <button id="signup" onclick="Validation()" class="btn btn-success">SignUp</button>
+                
+          
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function Validation() {
+
+            //getting value from user
+
+
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let mobile = document.getElementById('mobile').value;
+            let id = document.getElementById('id').value;
+            let password = document.getElementById('password').value;
+            let cpassword = document.getElementById('cpassword').value;
+
+            //for name
+
+            if (name == "") {
+                document.getElementById('Aname').innerHTML = 'Field Cant Be Empty';
+            }
+
+            if (name.length < 4 || name.length > 20) {
+                document.getElementById('Aname').innerHTML = 'Name Length Must Be in Between 5-20';
+            }
+            if (!isNaN(name)) {
+                document.getElementById('Aname').innerHTML = 'Digit Not allow';
+
+            }
+
+
+            //for Enmail
+
+            if (email == "") {
+                document.getElementById('Aemail').innerHTML = 'Field Cant Be Empty';
+            }
+
+            if (email.indexOf('@') <= 0) {
+                document.getElementById('Aemail').innerHTML = 'please check email id';
+            }
+
+
+
+            //for User id
+
+            if (id == "") {
+                document.getElementById('uid').innerHTML = 'Field Cant Be Empty';
+            }
+
+
+
+            //for mobile
+
+            if (mobile == "") {
+                document.getElementById('number').innerHTML = 'Field Cant Be Empty';
+            }
+
+            if (isNaN(mobile)) {
+                document.getElementById('number').innerHTML = 'Digits Not allow';
+            }
+
+            if (mobile.length != 10) {
+                document.getElementById('number').innerHTML = 'Please Check Moible Number';
+            }
+
+
+            //for password
+
+            if (password == "") {
+                document.getElementById('Apassword').innerHTML = 'Field Cant Be Empty';
+            }
+
+            if (password.length < 4 || password.length > 16) {
+                document.getElementById('Apassword').innerHTML = 'Password length Should be 4-16';
+
+            }
+
+            // for c passsword
+
+            if (cpassword == "") {
+                document.getElementById('Acpassword').innerHTML = 'Field Cant Be Empty';
+            }
+
+            if (password != cpassword) {
+                document.getElementById('Acpassword').innerHTML = 'Password is Not matching';
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

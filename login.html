@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <title>Document</title>
+</head>
+<style>
+    .container-fluid {
+        background-color: aquamarine;
+        height: 350px;
+        width: 600px;
+        border-radius: 50px;
+        margin-top: 10%;
+    }
+
+    .input{
+        font-size: 25px;
+        font-weight: bolder;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .col{
+        margin-top: 5%;
+        text-align: center;
+    }
+    
+
+</style>
+<body>
+<div class="container-fluid">
+    <div class="row col">
+<div class="col-md-6 col">
+    <label class="input">User Name :</label>
+     <input type="text" id="Uname" placeholder="ENter your Name" class="form-control"><br><br>
+    
+     <label class="input"> Password :</label><br>
+     <input type="text" id="password" placeholder="Enter your Password" class="form-control"><br><br>
+     
+    <center>
+     <button id="LoginBtn" onclick="Login()" class="btn btn-outline-success">Login</button>
+    <button id="Reset" onclick="Reset()" class="btn btn-outline-danger">Reset</button>
+    <button id="signup" onclick="Signup()" class="btn btn-outline-info">Signup</button>
+    </center>
+</div>
+</div>
+</div>
+    <script>
+        
+
+        function Login() {
+
+            var uname = document.getElementById('Uname').value;
+            var password = document.getElementById('password').value;
+
+            //form validation
+
+            if ((uname == "" || uname == null ) && password =='' || password == null ){
+                alert('Username or Password cant Be Empty');
+                return
+            }
+           
+            // login events  
+
+
+            let obj = [{
+                username: 'sandeep',
+                password: 'sandeep'
+            },
+            {
+                username: 'sk',
+                password: 'sk'
+            },
+            {
+                username: 'gs',
+                password: 'gs'
+            }
+            ]
+
+            for (i = 0; i < obj.length; i++) {
+
+                if (uname == obj[i].username && password == obj[i].password) {
+                    alert(uname + '  ' + 'logn suceesful');
+                    console.log(uname  + 'logn suceesful');
+                    return
+                }
+            } alert('enter vlaid data')
+        }
+
+        function Reset() {
+            var uname = document.getElementById('Uname');
+            var password = document.getElementById('password');
+
+            uname.value=' ';
+            password.value = ' ';
+        }
+
+        function Signup(){
+            location.href = 'signup.html';
+        }
+
+    </script>
+
+</body>
+
+</html>
